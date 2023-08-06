@@ -1,13 +1,20 @@
-{{! <nav>
-    <h1>Title</h1>
-</nav> }}
+<a href='/' class='title'>Title</a>
 
-{{! action="login.hbs" }}
-<div class="login">
-    <form method="post">
-        <h1 id="logi">Login</h1>
-        <input id="username" type="text" placeholder="Username" name="username" />
-        <input id="password" type="password" placeholder="Password" name="password" />
-        <button id="log" type="submit">Login</button>
-    </form>
+<div class='wrapper'>
+	<h2>Login</h2>
+	<div class='form-box login'>
+		<form action='#'>
+			<div class='input-box'>
+				<img src='/img/user-solid.svg' alt='user img' />
+				<input type='text' name='username' required />
+				<label>Username</label>
+			</div>
+			<div class='input-box'>
+				<img src='/img/lock-solid.svg' id='lock' onclick='ToogleVisibility()' alt='closed lock img' />
+				<input type='password' name='password' id='password-btn' required />
+				<label>Password</label>
+			</div>
+			<button type='submit' class='btn'>Login</button>
+		</form>
+	</div>
 </div>

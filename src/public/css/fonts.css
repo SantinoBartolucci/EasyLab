@@ -1,0 +1,37 @@
+/* latin-ext */
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 300;
+	font-stretch: normal;
+	font-display: swap;
+	src: url('/fonts/OpenSans-Light.woff') format('woff');
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: normal;
+	font-display: swap;
+	src: url('/fonts/OpenSans-Regular.woff') format('woff');
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-stretch: normal;
+	font-display: swap;
+	src: url('/fonts/OpenSans-Medium.woff') format('woff');
+}
+/* latin-ext */
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 700;
+	font-stretch: normal;
+	font-display: swap;
+	src: url('/fonts/OpenSans-Bold.woff') format('woff');
+}
