@@ -1,4 +1,4 @@
-const btn = document.getElementById('password-btn');
+const btn = document.getElementById('password-inp');
 const lock = document.getElementById('lock');
 
 const closedLock = '/img/lock-solid.svg';
