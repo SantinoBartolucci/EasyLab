@@ -28,10 +28,10 @@ passport.use(
 				if (await helper.comparePassword(password, user.password)) {
 					done(null, user);
 				} else {
-					done(null, false, req.flash('error_msg', 'Incorrect password'));
+					done(null, false, req.flash('error_msg', 'Contraseña Incorrecta'));
 				}
 			} else {
-				done(null, false, req.flash('error_msg', 'No user found'));
+				done(null, false, req.flash('error_msg', 'No se encontro el usuario'));
 			}
 		}
 	)

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-		<title>Title</title>
+		<title>Easy Lab</title>
 
 		{{! Fonts }}
 		<link rel='stylesheet' href='/css/fonts.css' />
@@ -13,12 +13,22 @@
 	</head>
 
 	<body>
-		<nav>
-			<a href='/' class='title'>Title</a>
-			<div>
-				<a class='button-a' href='/login'>Log In</a>
-			</div>
-		</nav>
+		{{#if notAdmin}}
+			<nav>
+				{{#if user}}
+					<a href='/teacherDashboard' class='title'>Easy Lab</a>
+					<div>
+						<a class='button-a' href='#'>Solicitud</a>
+						<a class='button-a' href='#'>{{name}}</a>
+					</div>
+				{{else}}
+					<a href='/' class='title'>Easy Lab</a>
+					<div>
+						<a class='button-a' href='/login'>Log In</a>
+					</div>
+				{{/if}}
+			</nav>
+		{{/if}}
 
 		<main>
 			<div class='container'>

@@ -2,29 +2,34 @@ const { Router } = require('express');
 const router = Router();
 
 const passport = require('passport');
-const { isLoggedIn } = require('../helpers/isLogged');
+const { isLoggedIn, isAdmin } = require('../helpers/isLogged');
 
 router.get('/login', (req, res) => {
-	res.render('login', { layout: 'login' });
+	if (req.user) {
+		res.redirect(req.user[0].admin ? '/adminDashboard' : '/teacherDashboard');
+	} else {
+		res.render('login', { layout: 'login' });
+	}
 });
 
 router.post(
 	'/login',
 	passport.authenticate('local.signin', {
-		successRedirect: '/getAdmin',
 		failureRedirect: '/login',
 		failureFlash: true,
-	})
+	}),
+	(req, res) => {
+		res.redirect(req.user.admin ? '/adminDashboard' : '/teacherDashboard');
+	}
 );
 
-router.get('/getAdmin', isLoggedIn, (req, res) => {
-	//* Si el campo "Admin" del usuario es true, redirect to Admin Dashboard
-	//* Si el campo "Admin" del usuario es false, redirect to Profesor Dashboard
-});
-
 router.get('/logOut', isLoggedIn, (req, res) => {
-	req.logOut();
-	res.redirect('/');
+	req.logout(function (err) {
+		if (err) {
+			return next(err);
+		}
+		res.redirect('/');
+	});
 });
 
 module.exports = router;

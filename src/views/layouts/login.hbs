@@ -1,24 +1,29 @@
 <html lang='es'>
 
-	<head>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-		<title>Title</title>
+<head>
+	<meta charset='UTF-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<title>Easy Lab</title>
 
-		{{! Fonts }}
-		<link rel='stylesheet' href='/css/fonts.css' />
+	{{! Fonts }}
+	<link rel='stylesheet' href='/css/fonts.css' />
 
-		{{! Custom CSS }}
-		<link rel='stylesheet' href='/css/login.css' />
-	</head>
+	{{! Custom CSS }}
+	<link rel='stylesheet' href='/css/login.css' />
+	<link rel="stylesheet" href="/css/partials.css">
+</head>
 
-	<body>
-		<main>
-			<div class='container'>
-				{{{body}}}
-			</div>
-		</main>
-		<script src='/js/tooglePasswordVisibility.js'></script>
-	</body>
+<body>
+	<main>
+		<div class='container'>
+			<a href='/' class='title'>Easy Lab</a>
+			{{#if error_msg}}
+				{{> error}}
+			{{/if}}
+			{{{body}}}
+		</div>
+	</main>
+	<script src='/js/tooglePasswordVisibility.js'></script>
+</body>
 
 </html>
