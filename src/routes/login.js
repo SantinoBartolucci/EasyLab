@@ -2,7 +2,7 @@ const { Router } = require('express');
 const router = Router();
 
 const passport = require('passport');
-const { isLoggedIn, isAdmin } = require('../helpers/isLogged');
+const { isLoggedIn } = require('../helpers/isLogged');
 
 router.get('/login', (req, res) => {
 	if (req.user) {

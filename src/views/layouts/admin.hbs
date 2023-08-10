@@ -13,21 +13,6 @@
 	</head>
 
 	<body>
-		<nav>
-			{{#if user}}
-				<a href='/teacherDashboard' class='title'>Easy Lab</a>
-				<div>
-					<a class='button-a' href='#'>Solicitud</a>
-					<a class='button-a' href='/teacherDashboard'>{{name}}</a>
-				</div>
-			{{else}}
-				<a href='/' class='title'>Easy Lab</a>
-				<div>
-					<a class='button-a' href='/login'>Log In</a>
-				</div>
-			{{/if}}
-		</nav>
-
 		<main>
 			<div class='container'>
 				{{{body}}}
