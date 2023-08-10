@@ -6,10 +6,8 @@ module.exports = {
 	},
 
 	isAdmin(req, res, next) {
-		if (req.isAuthenticated() && req.user[0].admin) {
-			return next();
-		} else {
-			return res.redirect('/');
-		}
+		if (req.isAuthenticated() && req.user[0].admin) return next();
+
+		res.redirect(req.user ? '/teacherDashboard' : '/');
 	},
 };

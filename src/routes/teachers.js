@@ -4,15 +4,16 @@ const router = Router();
 const { isLoggedIn, isAdmin } = require('../helpers/isLogged');
 
 router.get('/teacherDashboard', isLoggedIn, (req, res) => {
-	const { name } = req.user[0];
-	const notAdmin = req.user[0].admin == 1 ? 0 : 1;
-	res.render('teachers/dashboard', { name, notAdmin });
+	if (req.user[0].admin) {
+		res.redirect('/adminDashboard');
+	} else {
+		const { name } = req.user[0];
+		res.render('teachers/dashboard', { name });
+	}
 });
 
 router.get('/adminDashboard', isAdmin, (req, res) => {
-	const { name } = req.user[0];
-	const notAdmin = req.user[0].admin == 1 ? 0 : 1;
-	res.render('admins/dashboard', { name, notAdmin });
+	res.render('admins/dashboard', { layout: 'admin' });
 });
 
 module.exports = router;
