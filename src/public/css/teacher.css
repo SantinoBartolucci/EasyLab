@@ -1,0 +1,95 @@
+:root {
+	--white: white;
+	--black: #1e1e2c;
+	--grey: #e5e6e7;
+	--orange: #f29f67;
+	--blue: #3b8ff3;
+	--green: #34b1aa;
+	--yellow: #e0b50f;
+}
+
+.act-container {
+	width: 80%;
+	height: 800px;
+	background-color: var(--white);
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.sub-act-container {
+	width: 99%;
+	height: 96%;
+	padding: 10px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-column-gap: 40px;
+	grid-row-gap: 40px;
+	overflow-y: auto;
+}
+
+.act-card {
+	background-color: var(--grey);
+	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	width: 300px;
+	height: 200px;
+	word-wrap: break-word;
+	margin: auto;
+}
+
+.header-card {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.header-card h1 {
+	font-size: 28px;
+	margin: 10px;
+	width: 80%;
+}
+
+.header-card img {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	color: red;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.act-card hr {
+	margin-left: 10px;
+	width: 90%;
+}
+
+.act-card p {
+	margin: 10px;
+	font-weight: 400;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 5px;
+	height: 750px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
