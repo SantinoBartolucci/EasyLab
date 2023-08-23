@@ -8,6 +8,10 @@
 	--yellow: #e0b50f;
 }
 
+.container {
+	flex-direction: column;
+}
+
 .act-container {
 	width: 80%;
 	height: 800px;
@@ -69,6 +73,26 @@
 .act-card p {
 	margin: 10px;
 	font-weight: 400;
+}
+
+.no-task-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.no-task-card h1 {
+	font-size: 30px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+.no-task-card img {
+	width: 40px;
+	height: 40px;
+	color: var(--black);
+	cursor: pointer;
 }
 
 /* width */

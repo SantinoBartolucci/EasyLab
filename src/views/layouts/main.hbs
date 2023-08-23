@@ -11,6 +11,8 @@
 		{{! Custom CSS }}
 		<link rel='stylesheet' href='/css/index.css' />
 		<link rel='stylesheet' href='/css/teacher.css' />
+		<link rel='stylesheet' href='/css/partials.css' />
+		<link rel='stylesheet' href='/css/teacherForm.css' />
 	</head>
 
 	<body>
@@ -18,7 +20,7 @@
 			{{#if user}}
 				<a href='/teacherDashboard' class='title'>Easy Lab</a>
 				<div>
-					<a class='button-a' href='#'>Solicitud</a>
+					<a class='button-a' href='/activitieForm'>Solicitud</a>
 					<a class='button-a' href='/teacherDashboard'>{{name}}</a>
 				</div>
 			{{else}}
@@ -31,6 +33,9 @@
 
 		<main>
 			<div class='container'>
+				{{#if success_msg}}
+					{{> success}}
+				{{/if}}
 				{{{body}}}
 			</div>
 		</main>

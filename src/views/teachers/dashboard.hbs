@@ -1,176 +1,28 @@
 <div class='act-container'>
 	<div class='sub-act-container'>
-		{{! If activities do the for, else make a "create one" text }}
-		{{!-- {{#each activities}} --}}
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
+		{{#if data}}
+			{{#each data}}
+				<div class='act-card'>
+					{{! Cambiar propiedades, por las correspondientes dentro de allTask }}
+					{{! Hacer funcionar el eliminar la tarea }}
+					<div class='header-card'>
+						<h1>{{name}}</h1>
+						<a href='/deleteAct/{{id}}'><img src='/img/trash-solid.svg' alt='trash can' /></a>
+					</div>
+					<hr />
+					<div class='act-content'>
+						<p>Recurso: {{resource}}</p>
+						<p>Fecha: {{date}}</p>
+						<p>Hora: {{time}}</p>
+						<p>Estado: {{state}}</p>
+					</div>
+				</div>
+			{{/each}}
+		{{else}}
+			<div class='act-card no-task-card'>
+				<h1>No tienes reservas</h1>
+				<a href='/activitieForm'><img src='/img/circle-plus-solid.svg' alt='Big Solid X' /></a>
 			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
-		<div class='act-card'>
-			<div class='header-card'>
-				<h1>6ºC</h1>
-				<a href='/deleteAct'><img src='/img/trash-solid.svg' alt='trash can' /></a>
-			</div>
-			<hr />
-			<div class='act-content'>
-				<p>Recurso: Laboratorio 1</p>
-				<p>Fecha: 11/9/01</p>
-				<p>Hora: 8:45 - 10:28</p>
-				<p>Estado: aprobado</p>
-			</div>
-		</div>
+		{{/if}}
 	</div>
-	{{!-- {{/each}} --}}
 </div>
