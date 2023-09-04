@@ -32,6 +32,7 @@ input {
 	height: 100%;
 	border: none;
 	background-color: transparent;
+	outline: none;
 }
 
 .input-box select:focus,

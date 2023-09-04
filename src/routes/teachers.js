@@ -77,6 +77,8 @@ router.post('/activitieForm', isLoggedIn, async (req, res) => {
 		req.user[0].id,
 		idCurso[0].id,
 	]);
+
+	res.redirect('/teacherDashboard');
 });
 
 router.get('/adminDashboard', isAdmin, (req, res) => {
