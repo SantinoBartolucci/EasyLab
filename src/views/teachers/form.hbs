@@ -1,20 +1,33 @@
 <div class='wrapper'>
-	<div class='form-box login'>
-		<form action='/activitieForm' method='post'>
+	<div class='form-box'>
+		<form action='/activitieForm' method='post' id='form'>
 			<div class='input-box'>
-				<input type='text' name='curso' required />
-				<label>Curso</label>
+				<select name='curso' required>
+					<option disabled selected hidden value> -- Seleccione el curso -- </option>
+					{{#each data.cursos}}
+						<option value='{{this}}'>{{this}}</option>
+					{{/each}}
+				</select>
 			</div>
 			<div class='input-box'>
-				<input type='text' name='resource' required />
-				<label>Recurso</label>
+				<select name='type' required>
+					<option disabled selected hidden value> -- Seleccione el recurso -- </option>
+					{{#each data.resources}}
+						<option value='{{this}}'>{{this}}</option>
+					{{/each}}
+				</select>
 			</div>
 			<div class='input-box'>
-				<input type='text' name='date' required />
-				<label>Fecha</label>
+				<input type='date' name='date' min='{{data.actualDate}}' required />
 			</div>
-			{{! Agregar campo/campos de fecha de inicio y finalizacion }}
-			<button type='submit' class='btn'>Login</button>
+			<div class='input-box'>
+				<select name='turno' id='time' onchange='Turns()' required>
+					<option disabled selected hidden value> -- Seleccione el turno -- </option>
+					<option value='mañana'>Mañana</option>
+					<option value='tarde'>Tarde</option>
+				</select>
+			</div>
+			<button type='submit' class='btn' id='btn'>Solicitar</button>
 		</form>
 	</div>
 </div>

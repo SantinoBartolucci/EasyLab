@@ -25,7 +25,7 @@
 .sub-act-container {
 	width: 99%;
 	height: 96%;
-	padding: 10px;
+	padding: 0px 10px 10px 10px;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(3, 1fr);

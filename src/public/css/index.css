@@ -22,6 +22,7 @@ a {
 
 body {
 	background-color: var(--grey);
+	overflow-x: hidden;
 }
 
 main {
@@ -29,6 +30,7 @@ main {
 	justify-content: center;
 	min-height: 900px;
 }
+
 /*#endregion*/
 
 /*#region Navigation Section*/
