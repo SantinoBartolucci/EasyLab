@@ -1,5 +1,5 @@
 module.exports = {
-	dateToYMD(date) {
+	DateToYMD(date) {
 		var d = date.getDate();
 		var m = date.getMonth() + 1; // +1 because of Month begin from 0 to 11
 		var y = date.getFullYear();
