@@ -81,8 +81,4 @@ router.post('/activitieForm', isLoggedIn, async (req, res) => {
 	res.redirect('/teacherDashboard');
 });
 
-router.get('/adminDashboard', isAdmin, (req, res) => {
-	res.render('admins/dashboard', { layout: 'admin' });
-});
-
 module.exports = router;
