@@ -9,16 +9,49 @@
 		<link rel='stylesheet' href='/css/fonts.css' />
 
 		{{! Custom CSS }}
-		<link rel='stylesheet' href='/css/index.css' />
+		<link rel='stylesheet' href='/css/admin.css' />
 	</head>
 
 	<body>
-		<main>
-			<div class='container'>
-				{{{body}}}
+		<div class='container'>
+			<div class='navigation'>
+				<ul>
+					<li>
+						<a href='#'>
+							<span class='title brand-title'>Easy Lab</span>
+						</a>
+					</li>
+					<li class='selected clickable'>
+						<a href='#'>
+							<span class='icon'><img src='/img/clock-regular.svg' alt='clock' /></span>
+							<span class='title'>Gestion</span>
+						</a>
+					</li>
+					<li class='clickable'>
+						<a href='#'>
+							<span class='icon'><img src='/img/user-graduate-solid.svg' alt='student' /></span>
+							<span class='title'>Cursos</span>
+						</a>
+					</li>
+					<li class='clickable'>
+						<a href='#'>
+							<span class='icon'><img src='/img/folder-open-regular.svg' alt='folder' /></span>
+							<span class='title'>Recursos</span>
+						</a>
+					</li>
+					<li class='clickable'>
+						<a href='#'>
+							<span class='icon'><img src='/img/users-solid.svg' alt='users' /></span>
+							<span class='title'>Usuarios</span>
+						</a>
+					</li>
+				</ul>
 			</div>
-		</main>
-
+			<main>
+				{{{body}}}
+			</main>
+		</div>
+		<script src='/js/selectedSection.js'></script>
 	</body>
 
 </html>
