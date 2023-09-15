@@ -17,18 +17,12 @@
 
 	<body>
 		<nav>
-			{{#if user}}
-				<a href='/teacherDashboard' class='title'>Easy Lab</a>
-				<div>
-					<a class='button-a' href='/activitieForm'>Solicitud</a>
-					<a class='button-a' href='/teacherDashboard'>{{name}}</a>
-				</div>
-			{{else}}
-				<a href='/' class='title'>Easy Lab</a>
-				<div>
-					<a class='button-a' href='/login'>Log In</a>
-				</div>
-			{{/if}}
+			<a href='/teacherDashboard' class='title'>Easy Lab</a>
+			<div>
+				<a class='button-a' href='/LogOut'>Salir</a>
+				<a class='button-a' href='/activitieForm'>Solicitud</a>
+				<a class='button-a' href='/teacherDashboard'>{{name}}</a>
+			</div>
 		</nav>
 
 		<main>

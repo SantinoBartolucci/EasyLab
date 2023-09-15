@@ -12,6 +12,16 @@ router.get('/login', (req, res) => {
 	}
 });
 
+router.get('/logOut', isLoggedIn, (req, res) => {
+	req.logout(function (err) {
+		if (err) {
+			return next(err);
+		}
+		res.redirect('/');
+	});
+});
+
+//** POST */
 router.post(
 	'/login',
 	passport.authenticate('local.signin', {
@@ -22,14 +32,5 @@ router.post(
 		res.redirect(req.user.admin ? '/adminDashboard' : '/teacherDashboard');
 	}
 );
-
-router.get('/logOut', isLoggedIn, (req, res) => {
-	req.logout(function (err) {
-		if (err) {
-			return next(err);
-		}
-		res.redirect('/');
-	});
-});
 
 module.exports = router;
