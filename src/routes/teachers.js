@@ -62,6 +62,8 @@ router.get('/activitieForm', isLoggedIn, async (req, res) => {
 	}
 });
 
+//** POST */
+
 router.post('/activitieForm', isLoggedIn, async (req, res) => {
 	let { curso, type, date, start, end } = req.body;
 	console.log(req.body);

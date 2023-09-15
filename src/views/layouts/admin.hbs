@@ -21,37 +21,44 @@
 							<span class='title brand-title'>Easy Lab</span>
 						</a>
 					</li>
-					<li class='selected clickable'>
-						<a href='#'>
+					<li class='selected'>
+						<a href='#' id='gestion-link'>
 							<span class='icon'><img src='/img/clock-regular.svg' alt='clock' /></span>
 							<span class='title'>Gestion</span>
 						</a>
 					</li>
-					<li class='clickable'>
-						<a href='#'>
+					<li>
+						<a href='#' id='cursos-link'>
 							<span class='icon'><img src='/img/user-graduate-solid.svg' alt='student' /></span>
 							<span class='title'>Cursos</span>
 						</a>
 					</li>
-					<li class='clickable'>
-						<a href='#'>
+					<li>
+						<a href='#' id='recursos-link'>
 							<span class='icon'><img src='/img/folder-open-regular.svg' alt='folder' /></span>
 							<span class='title'>Recursos</span>
 						</a>
 					</li>
-					<li class='clickable'>
-						<a href='#'>
+					<li>
+						<a href='#' id='usuarios-link'>
 							<span class='icon'><img src='/img/users-solid.svg' alt='users' /></span>
 							<span class='title'>Usuarios</span>
 						</a>
 					</li>
+					<li>
+						<a href='/LogOut'>
+							<span class='icon'><img src='/img/arrow-right-from-bracket-solid.svg' alt='close session' /></span>
+							<span class='title'>Salir</span>
+						</a>
+					</li>
 				</ul>
 			</div>
-			<main>
+			<main id='content'>
 				{{{body}}}
 			</main>
 		</div>
 		<script src='/js/selectedSection.js'></script>
+		<script src='/js/adminAJAX.js'></script>
 	</body>
 
 </html>
