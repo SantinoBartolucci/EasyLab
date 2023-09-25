@@ -66,7 +66,6 @@ router.get('/activitieForm', isLoggedIn, async (req, res) => {
 
 router.post('/activitieForm', isLoggedIn, async (req, res) => {
 	let { curso, type, date, start, end } = req.body;
-	console.log(req.body);
 	type = type.charAt(0).toLowerCase() + type.slice(1);
 	idCurso = await pool.query('SELECT id FROM cursos WHERE name=?', [curso]);
 
