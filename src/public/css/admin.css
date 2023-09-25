@@ -55,7 +55,7 @@ body {
 }
 
 .navigation ul li.selected {
-	background: var(--white);
+	background: var(--grey);
 }
 
 .navigation ul li:nth-child(1) {
@@ -69,7 +69,7 @@ body {
 	width: 100%;
 	display: flex;
 	text-decoration: none;
-	color: var(--white);
+	color: var(--grey);
 }
 
 .navigation ul li.selected a {
@@ -106,8 +106,9 @@ body {
 }
 
 .navigation ul li a .brand-title {
+	margin-top: 10px;
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 40px;
 }
 
 /* Curve Outside */
@@ -120,7 +121,7 @@ body {
 	height: 50px;
 	background: transparent;
 	border-radius: 50%;
-	box-shadow: 35px 35px 0 10px var(--white);
+	box-shadow: 35px 35px 0 10px var(--grey);
 	pointer-events: none;
 }
 
@@ -133,7 +134,7 @@ body {
 	height: 50px;
 	background: transparent;
 	border-radius: 50%;
-	box-shadow: 35px -35px 0 10px var(--white);
+	box-shadow: 35px -35px 0 10px var(--grey);
 	pointer-events: none;
 }
 
@@ -142,8 +143,5 @@ main {
 	width: calc(100% - 300px);
 	left: 300px;
 	min-height: 100vh;
-	background-color: var(--white);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	background-color: var(--grey);
 }
