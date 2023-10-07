@@ -11,8 +11,8 @@
 
 .section-title {
 	display: flex;
-	justify-content: center;
-	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 	width: 100%;
 	height: 15vh;
 	padding-left: 30px;
@@ -21,6 +21,50 @@
 .section-title h1 {
 	font-weight: 700;
 	font-size: 70px;
+	display: inline-block;
+}
+
+.section-title div {
+	height: 55px;
+	width: 75px;
+	background-color: var(--green);
+	color: var(--white);
+	font-size: 26px;
+	border-top-left-radius: 35px;
+	border-bottom-left-radius: 35px;
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+	transition: 0.5s ease;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.section-title div span {
+	font-size: 2em;
+	transition: 0.5s ease;
+}
+
+.section-title div p {
+	margin-left: 15px;
+	white-space: nowrap;
+	transition: 0.5s ease;
+	opacity: 0;
+}
+
+.section-title div:hover {
+	width: 300px;
+	transition: 0.5s ease;
+}
+
+.section-title div:hover span {
+	transform: rotate(405deg);
+	transition: 0.5s ease;
+}
+
+.section-title div:hover p {
+	opacity: 1;
+	transition: 0.5s ease;
 }
 
 .section-table {
@@ -102,4 +146,150 @@
 
 .centered {
 	text-align: center;
+}
+
+/** POPUP SECTION */
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 200ms ease-in-out;
+	border-radius: 5px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	z-index: 10;
+	background-color: white;
+	width: 400px;
+	height: 420px;
+}
+
+.modal.active {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+	padding: 20px 15px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modal-header .title {
+	font-size: 1.75rem;
+	font-weight: bold;
+}
+
+.modal-header .close-button {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background: none;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.modal-body {
+	padding: 10px 15px;
+}
+
+#overlay {
+	position: fixed;
+	opacity: 0;
+	transition: 200ms ease-in-out;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	pointer-events: none;
+}
+
+#overlay.active {
+	opacity: 1;
+	pointer-events: all;
+}
+
+/* FORM */
+
+.input-box {
+	background-color: var(--grey);
+	position: relative;
+	width: 100%;
+	height: 50px;
+	border-radius: 5px;
+	margin: 30px 0;
+}
+
+.checbox-box {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	border-radius: 5px;
+	margin: 30px 0;
+	display: flex;
+	align-items: center;
+}
+
+.input-box label {
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+	font-size: 0.9em;
+	color: var(--black);
+	font-weight: 400;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+	top: 10px;
+	font-size: 0.7em;
+	/* left: 5px; */
+}
+
+.input-box input {
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: 1em;
+	color: var(--black);
+	font-weight: 500;
+	padding: 10px 35px 0 10px;
+}
+
+.checbox-box input {
+	height: 25px;
+	width: 25px;
+	margin-right: 10px;
+}
+
+.btn {
+	width: 100%;
+	height: 45px;
+	background-color: var(--green);
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	outline: none;
+	font-size: 1em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: var(--white);
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: box-shadow, transform;
+	transition-property: box-shadow, transform;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+	box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+	-webkit-transform: scale(1.05);
+	transform: scale(1.05);
 }

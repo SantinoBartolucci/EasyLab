@@ -54,9 +54,6 @@ router.get('/activitieForm', isLoggedIn, async (req, res) => {
 		};
 
 		data.resources = [...new Set(data.resources)];
-		for (let i = 0; i < data.resources.length; i++) {
-			data.resources[i] = data.resources[i].charAt(0).toUpperCase() + data.resources[i].slice(1);
-		}
 
 		res.render('teachers/form', { name, data, layout: 'teacherForm' });
 	}
@@ -66,7 +63,7 @@ router.get('/activitieForm', isLoggedIn, async (req, res) => {
 
 router.post('/activitieForm', isLoggedIn, async (req, res) => {
 	let { curso, type, date, start, end } = req.body;
-	type = type.charAt(0).toLowerCase() + type.slice(1);
+
 	idCurso = await pool.query('SELECT id FROM cursos WHERE name=?', [curso]);
 
 	await pool.query('INSERT INTO tareas (type, date, start, end, state, idProfesor, idCurso) VALUES (?, ?, ?, ?, ?, ?, ?)', [

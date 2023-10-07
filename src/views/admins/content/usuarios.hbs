@@ -1,5 +1,9 @@
 <div class='section-title'>
 	<h1>Usuarios</h1>
+	<div onclick='OpenUserCreatePopup()'>
+		<span>&plus;</span>
+		<p>Nuevo Usuario</p>
+	</div>
 </div>
 
 <div class='section-table'>
@@ -12,63 +16,81 @@
 					<th class='centered'>Modificar</th>
 					<th class='centered'>Eliminar</th>
 				</tr>
-				<tbody>
-					<tr>
-						<td>Santino Bartolucci</td>
-						<td>No</td>
-						<td class='img-column'>
-							<div class='column-content'>
-								<div class='square edit'>
-									<img src='/img/user-gear-solid.svg' alt='modify-user' />
-								</div>
-							</div>
-						</td>
-						<td class='img-column'>
-							<div class='column-content'>
-								<div class='square delete'>
-									<img src='/img/user-slash-solid.svg' alt='delete-user' />
-								</div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Leila Coronel</td>
-						<td>No</td>
-						<td class='img-column'>
-							<div class='column-content'>
-								<div class='square edit'>
-									<img src='/img/user-gear-solid.svg' alt='modify-user' />
-								</div>
-							</div>
-						</td>
-						<td class='img-column'>
-							<div class='column-content'>
-								<div class='square delete'>
-									<img src='/img/user-slash-solid.svg' alt='delete-user' />
-								</div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>Pablo Gambacorta</td>
-						<td>No</td>
-						<td class='img-column'>
-							<div class='column-content'>
-								<div class='square edit'>
-									<img src='/img/user-gear-solid.svg' alt='modify-user' />
-								</div>
-							</div>
-						</td>
-						<td class='img-column'>
-							<div class='column-content'>
-								<div class='square delete'>
-									<img src='/img/user-slash-solid.svg' alt='delete-user' />
-								</div>
-							</div>
-						</td>
-					</tr>
-				</tbody>
 			</thead>
+			<tbody>
+				{{#if users}}
+					{{#each users}}
+						<tr>
+							<td>{{name}}</td>
+							<td>{{admin}}</td>
+							<td class='img-column'>
+								<div class='column-content'>
+									<div class='square edit' onclick='OpenUserEditPopup({{id}})'>
+										<img src='/img/user-gear-solid.svg' alt='modify-user' />
+									</div>
+								</div>
+							</td>
+							<td class='img-column'>
+								<div class='column-content'>
+									<div class='square delete' onclick='DeleteUser({{id}})'>
+										<img src='/img/user-slash-solid.svg' alt='delete-user' />
+									</div>
+								</div>
+							</td>
+						</tr>
+					{{/each}}
+				{{/if}}
+			</tbody>
 		</table>
 	</div>
 </div>
+
+<div class='modal' id='edit-modal'>
+	<div class='modal-header'>
+		<div class='title'>Edición</div>
+		<button onclick='ClosePopup(this)' class='close-button'>&times;</button>
+	</div>
+	<div class='modal-body'>
+		<form action='javascript:void(0);' id='edit-form'>
+			<div class='input-box'>
+				<input type='text' id='edit-name' required />
+				<label>Username</label>
+			</div>
+			<div class='input-box'>
+				<input type='password' id='edit-password' required />
+				<label>Ingrese nueva contraseña</label>
+			</div>
+			<div class='checbox-box'>
+				<input type='checkbox' id='edit-admin' />
+				<label>Administrador</label>
+			</div>
+			<button id='modal-edit-button' type='submit' class='btn'>Confirmar</button>
+		</form>
+	</div>
+</div>
+
+<div class='modal' id='create-modal'>
+	<div class='modal-header'>
+		<div class='title'>Creación</div>
+		<button onclick='ClosePopup(this)' class='close-button'>&times;</button>
+	</div>
+	<div class='modal-body'>
+		<form action='javascript:void(0);' id='create-form'>
+			<div class='input-box'>
+				<input type='text' id='create-name' required />
+				<label>Username</label>
+			</div>
+			<div class='input-box'>
+				<input type='password' id='create-password' required />
+				<label>Contraseña</label>
+			</div>
+			<div class='checbox-box'>
+				<input type='checkbox' id='create-admin' />
+				<label>Administrador</label>
+			</div>
+			<button id='modal-create-button' type='submit' class='btn'>Confirmar</button>
+		</form>
+	</div>
+</div>
+
+<div id='overlay'></div>

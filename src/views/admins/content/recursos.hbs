@@ -1,1 +1,98 @@
-<h1>Recursos</h1>
+<div class='section-title'>
+	<h1>Recursos</h1>
+	<div onclick='OpenResourceCreatePopup()'>
+		<span>&plus;</span>
+		<p>Nuevo Recurso</p>
+	</div>
+</div>
+
+<div class='section-table'>
+	<div class='table-container'>
+		<table class='content-table'>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Tipo</th>
+					<th>Maximo de Alumnos</th>
+					<th class='centered'>Modificar</th>
+					<th class='centered'>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#if resources}}
+					{{#each resources}}
+						<tr>
+							<td>{{name}}</td>
+							<td>{{type}}</td>
+							<td>{{max}}</td>
+							<td class='img-column'>
+								<div class='column-content'>
+									<div class='square edit' onclick='OpenResourceEditPopup({{id}})'>
+										<img src='/img/user-gear-solid.svg' alt='modify-resource' />
+									</div>
+								</div>
+							</td>
+							<td class='img-column'>
+								<div class='column-content'>
+									<div class='square delete' onclick='DeleteResource({{id}})'>
+										<img src='/img/user-slash-solid.svg' alt='delete-resource' />
+									</div>
+								</div>
+							</td>
+						</tr>
+					{{/each}}
+				{{/if}}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class='modal' id='edit-modal'>
+	<div class='modal-header'>
+		<div class='title'>Edición</div>
+		<button onclick='ClosePopup(this)' class='close-button'>&times;</button>
+	</div>
+	<div class='modal-body'>
+		<form action='javascript:void(0);' id='edit-form'>
+			<div class='input-box'>
+				<input type='text' id='edit-name' required />
+				<label>Nombre</label>
+			</div>
+			<div class='input-box'>
+				<input type='text' id='edit-type' required />
+				<label>Tipo</label>
+			</div>
+			<div class='input-box'>
+				<input type='number' id='edit-max' min='0' required />
+				<label>Máximo de Alumnos</label>
+			</div>
+			<button id='modal-edit-button' type='submit' class='btn'>Confirmar</button>
+		</form>
+	</div>
+</div>
+
+<div class='modal' id='create-modal'>
+	<div class='modal-header'>
+		<div class='title'>Creación</div>
+		<button onclick='ClosePopup(this)' class='close-button'>&times;</button>
+	</div>
+	<div class='modal-body'>
+		<form action='javascript:void(0);' id='create-form'>
+			<div class='input-box'>
+				<input type='text' id='create-name' required />
+				<label>Nombre</label>
+			</div>
+			<div class='input-box'>
+				<input type='text' id='create-type' required />
+				<label>Tipo</label>
+			</div>
+			<div class='input-box'>
+				<input type='number' id='create-max' min='0' required />
+				<label>Máximo de Alumnos</label>
+			</div>
+			<button id='modal-create-button' type='submit' class='btn'>Confirmar</button>
+		</form>
+	</div>
+</div>
+
+<div id='overlay'></div>
