@@ -1,1 +1,98 @@
-<h1>Cursos</h1>
+<div class='section-title'>
+	<h1>Cursos</h1>
+	<div onclick='OpenCursoCreatePopup()'>
+		<span>&plus;</span>
+		<p>Nuevo Curso</p>
+	</div>
+</div>
+
+<div class='section-table'>
+	<div class='table-container'>
+		<table class='content-table'>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Cantidad de Alumnos</th>
+					<th>Técnico</th>
+					<th class='centered'>Modificar</th>
+					<th class='centered'>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#if cursos}}
+					{{#each cursos}}
+						<tr>
+							<td>{{name}}</td>
+							<td>{{alumnos}}</td>
+							<td>{{tecnico}}</td>
+							<td class='img-column'>
+								<div class='column-content'>
+									<div class='square edit' onclick='OpenCursoEditPopup({{id}})'>
+										<img src='/img/user-gear-solid.svg' alt='modify-curso' />
+									</div>
+								</div>
+							</td>
+							<td class='img-column'>
+								<div class='column-content'>
+									<div class='square delete' onclick='DeleteCurso({{id}})'>
+										<img src='/img/user-slash-solid.svg' alt='delete-curso' />
+									</div>
+								</div>
+							</td>
+						</tr>
+					{{/each}}
+				{{/if}}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class='modal' id='edit-modal'>
+	<div class='modal-header'>
+		<div class='title'>Edición</div>
+		<button onclick='ClosePopup(this)' class='close-button'>&times;</button>
+	</div>
+	<div class='modal-body'>
+		<form action='javascript:void(0);' id='edit-form'>
+			<div class='input-box'>
+				<input type='text' id='edit-name' required />
+				<label>Nombre</label>
+			</div>
+			<div class='input-box'>
+				<input type='number' id='edit-alumnos' min='0' required />
+				<label>Cantidad de Alumnos</label>
+			</div>
+			<div class='checbox-box'>
+				<input type='checkbox' id='edit-tecnico' />
+				<label>Técnico</label>
+			</div>
+			<button type='submit' class='btn'>Confirmar</button>
+		</form>
+	</div>
+</div>
+
+<div class='modal' id='create-modal'>
+	<div class='modal-header'>
+		<div class='title'>Creación</div>
+		<button onclick='ClosePopup(this)' class='close-button'>&times;</button>
+	</div>
+	<div class='modal-body'>
+		<form action='javascript:void(0);' id='create-form'>
+			<div class='input-box'>
+				<input type='text' id='create-name' required />
+				<label>Nombre</label>
+			</div>
+			<div class='input-box'>
+				<input type='number' id='create-alumnos' min='0' required />
+				<label>Cantidad de Alumnos</label>
+			</div>
+			<div class='checbox-box'>
+				<input type='checkbox' id='create-tecnico' />
+				<label>Técnico</label>
+			</div>
+			<button type='submit' class='btn'>Confirmar</button>
+		</form>
+	</div>
+</div>
+
+<div id='overlay'></div>

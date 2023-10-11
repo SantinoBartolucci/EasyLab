@@ -1,5 +1,7 @@
 let actualSession = '/gestion';
+//TODO: Get the url when reloading so we reload in that section
 
+//** AJAX HANDLER */
 const LoadContent = (url, change) => {
 	if (url === actualSession && !change) return;
 
@@ -14,6 +16,7 @@ const LoadContent = (url, change) => {
 	xhr.send();
 };
 
+//** SETUP HANDLER */
 document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('gestion-link').addEventListener('click', (e) => {
 		e.preventDefault();
@@ -130,6 +133,55 @@ function CreateResource() {
 }
 //#endregion
 
+//#region Cursos Config
+function DeleteCurso(id) {
+	let xhr = new XMLHttpRequest();
+	xhr.open('GET', '/delCurso/' + id, true);
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			LoadContent('/cursos', true);
+		}
+	};
+	xhr.send();
+}
+
+function EditCurso(id) {
+	const name = document.getElementById('edit-name').value;
+	const alumnos = document.getElementById('edit-alumnos').value;
+	const tecnico = document.getElementById('edit-tecnico').checked;
+
+	let params = `name=${name}&alumnos=${alumnos}&tecnico=${tecnico}`;
+	let xhr = new XMLHttpRequest();
+
+	xhr.open('POST', '/editCurso/' + id, true);
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			LoadContent('/cursos', true);
+		}
+	};
+	xhr.send(params);
+}
+
+function CreateCurso() {
+	const name = document.getElementById('create-name').value;
+	const alumnos = document.getElementById('create-alumnos').value;
+	const tecnico = document.getElementById('create-tecnico').checked;
+
+	let params = `name=${name}&alumnos=${alumnos}&tecnico=${tecnico}`;
+	let xhr = new XMLHttpRequest();
+
+	xhr.open('POST', '/createCurso/', true);
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			LoadContent('/cursos', true);
+		}
+	};
+	xhr.send(params);
+}
+//#endregion
+
 //**Funcionalidades vinculadas con la pagina */
 
 //#region Users Popup
@@ -153,7 +205,7 @@ function OpenUserEditPopup(id) {
 			admin.checked = usrData[0].admin ? true : false;
 			form.addEventListener('submit', (e) => {
 				e.preventDefault();
-				EditUser(usrData[0].id);
+				EditUser(id);
 			});
 		}
 	};
@@ -198,7 +250,7 @@ function OpenResourceEditPopup(id) {
 			max.value = resourceData[0].max;
 			form.addEventListener('submit', (e) => {
 				e.preventDefault();
-				EditResource(resourceData[0].id);
+				EditResource(id);
 			});
 		}
 	};
@@ -215,6 +267,50 @@ function OpenResourceCreatePopup() {
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
 		CreateResource();
+	});
+}
+//#endregion
+
+//#region Cursos Popup
+function OpenCursoEditPopup(id) {
+	const modal = document.getElementById('edit-modal');
+	const overlay = document.getElementById('overlay');
+	modal.classList.add('active');
+	overlay.classList.add('active');
+
+	let cursoData;
+	let xhr = new XMLHttpRequest();
+
+	xhr.open('GET', '/cursoData/' + id, true);
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			cursoData = JSON.parse(xhr.response);
+			const name = document.getElementById('edit-name');
+			const alumnos = document.getElementById('edit-alumnos');
+			const tecnico = document.getElementById('edit-tecnico');
+			const form = document.getElementById('edit-form');
+			name.value = cursoData[0].name;
+			alumnos.value = cursoData[0].cantAlumnos;
+			tecnico.checked = cursoData[0].tecnico ? true : false;
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				EditCurso(id);
+			});
+		}
+	};
+	xhr.send();
+}
+
+function OpenCursoCreatePopup() {
+	const modal = document.getElementById('create-modal');
+	const overlay = document.getElementById('overlay');
+	modal.classList.add('active');
+	overlay.classList.add('active');
+
+	const form = document.getElementById('create-form');
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		CreateCurso();
 	});
 }
 //#endregion
