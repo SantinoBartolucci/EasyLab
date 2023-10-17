@@ -60,7 +60,7 @@
 	width: 20px;
 	height: 20px;
 	display: inline-block;
-	color: red;
+	filter: invert(15%) sepia(68%) saturate(6008%) hue-rotate(351deg) brightness(87%) contrast(85%);
 	margin-right: 10px;
 	cursor: pointer;
 }

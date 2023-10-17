@@ -148,7 +148,8 @@
 	text-align: center;
 }
 
-/** POPUP SECTION */
+/*#region /** POPUP Section */
+
 .modal {
 	position: fixed;
 	top: 50%;
@@ -208,9 +209,9 @@
 	opacity: 1;
 	pointer-events: all;
 }
+/*#endregion */
 
-/* FORM */
-
+/*#region /** FORM */
 .input-box {
 	background-color: var(--grey);
 	position: relative;
@@ -246,7 +247,6 @@
 .input-box input:valid ~ label {
 	top: 10px;
 	font-size: 0.7em;
-	/* left: 5px; */
 }
 
 .input-box input {
@@ -293,3 +293,4 @@
 	-webkit-transform: scale(1.05);
 	transform: scale(1.05);
 }
+/*#endregion*/
